@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Carousel Component</title>
+
+    <style>
+      /*
+      SPACING SYSTEM (px)
+      2 / 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 80 / 96 / 128
+      FONT SIZE SYSTEM (px)
+      10 / 12 / 14 / 16 / 18 / 20 / 24 / 30 / 36 / 44 / 52 / 62 / 74 / 86 / 98
+      */
+      /*
+      MAIN COLOR: #087f5b
+      GREY COLOR: #343a40
+      */
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", sans-serif;
+        color: #343a40;
+        line-height: 1;
+        height: 100vh;
+        background-image: linear-gradient(
+          to right bottom,
+          #ff9a2f,
+          #ff9c7a,
+          #ffadb9,
+          #ffc7e7,
+          #ffe2fe,
+          #ebe1ff,
+          #d4e0ff,
+          #bedffd,
+          #64ceeb,
+          #00bdbd,
+          #00a572,
+          #0a8901
+        );
+      }
+
+      .carousel {
+        width: 800px;
+        margin: 50px auto;
+        margin-top: 250px;
+        background-color: #087f5b;
+        /* padding: 32px; */
+        /* padding-left: 86px; */
+        /* padding-right: 48px; */
+        padding: 32px 48px 32px 86px;
+
+        border-radius: 8px;
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        gap: 86px;
+      }
+
+      img {
+        height: 200px;
+        width: 200px;
+        border-radius: 8px;
+        transform: scale(1.5);
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      .quote-text {
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+        margin-bottom: 32px;
+        color: #e6fcf5;
+      }
+
+      .quote-author {
+        font-size: 14px;
+        margin-bottom: 4px;
+        color: #c3fae8;
+      }
+
+      .quote-job {
+        font-size: 12px;
+        color: #c3fae8;
+        font-style: italic;
+      }
+      .btn-div {
+        width: 200px;
+        margin: 25px auto;
+      }
+      .btn {
+        padding: 20px;
+        background-color: #087f5b;
+        color: #e6fcf5;
+        border-radius: 5px;
+        font-size: 20px;
+        font-weight: 700;
+        border: none;
+        box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.32);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="carousel">
+      <img
+        id="quote-image-id"
+        src="pictures/Mahatma Gandhi.jpeg"
+        alt="Mahatma Gandhi"
+      />
+      <blockquote class="quote">
+        <p class="quote-text" id="quote-text-id">
+          Live as if you were to die tomorrow. Learn as if you were to live
+          forever.
+        </p>
+        <p class="quote-author" id="quote-author-id">Mahatma Gandhi</p>
+        <p class="quote-job" id="quote-job-id">Father Of the Nation</p>
+      </blockquote>
+    </div>
+    <div class="btn-div" onclick="getquote()">
+      <button class="btn">Get Quote</button>
+    </div>
+  </body>
+  <script>
+    let quotes = [
+      "Don’t see others doing better than you, beat your own records every day because success is a fight between you and yourself.",
+      "A rebellion is not a revolution. It may ultimately lead to that end.",
+      "Revolution is an inalienable right of mankind. Freedom is an imperishable birthright of all.",
+      "Where the mind is led forward by thee into ever-widening thought and action-Into that heaven of freedom, my father, let my country awake.",
+      "A war based on Satyagraha is always of two kinds. One is the war we wage against injustice and the other we fight against our own weaknesses.",
+      "Those who are prepared to die for any cause are seldom defeated.",
+      "Freedom is not worth having if it does not include the freedom to make mistakes.",
+      "First they ignore you, then they laugh at you, then they fight you, then you win.",
+      "You must be the change you wish to see in the world.",
+      "Live as if you were to die tomorrow. Learn as if you were to live forever.",
+    ];
+    let quotesAuthor = [
+      "Chandrasekhar Azad",
+      "Bhagat Singh",
+      "Bhagat Singh",
+      "Rabindranath Tagore",
+      "Sardar Vallabhbhai Patel",
+      "Pandit Jawarharlal Nehru",
+      "Mahatma Gandhi",
+      "Mahatma Gandhi",
+      "Mahatma Gandhi",
+      "Mahatma Gandhi",
+    ];
+    let quotesImage = [
+      "pictures/Chandrasekhar Azad.jpeg",
+      "pictures/Bhagat Singh.jpeg",
+      "pictures/Bhagat Singh.jpeg",
+      "pictures/Rabindranath Tagore.jpeg",
+      "pictures/Sardar Vallabhbhai Patel.jpeg",
+      "pictures/Pandit Jawarharlal Nehru.jpeg",
+      "pictures/Mahatma Gandhi.jpeg",
+      "pictures/Mahatma Gandhi.jpeg",
+      "pictures/Mahatma Gandhi.jpeg",
+      "pictures/Mahatma Gandhi.jpeg",
+    ];
+    let quotesAuthorPosition = [
+      "Freedom Fighter",
+      "Freedom Fighter",
+      "Freedom Fighter",
+      "Poet",
+      "Iron Man Of India",
+      "First Prime Minister Of India",
+      "Father Of the Nation",
+      "Father Of the Nation",
+      "Father Of the Nation",
+      "Father Of the Nation",
+    ];
+    //console.log(quotesAuthorPosition);
+    function getquote() {
+      let num = Math.floor(Math.random() * 10);
+      document.getElementById("quote-text-id").innerHTML = quotes[num];
+      document.getElementById("quote-author-id").innerHTML = quotesAuthor[num];
+      document.getElementById("quote-image-id").src = quotesImage[num];
+      document.getElementById("quote-image-id").alt = quotesAuthor[num];
+      document.getElementById("quote-job-id").innerHTML =
+        quotesAuthorPosition[num];
+    }
+  </script>
+</html>
