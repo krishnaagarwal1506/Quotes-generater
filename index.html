@@ -99,6 +99,17 @@
         border: none;
         box-shadow: 0px 0px 34px 0px rgba(0, 0, 0, 0.32);
       }
+      .btn:hover {
+        cursor: pointer;
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+      .btn:active {
+        padding: 19px;
+        font-size: 19px;
+        outline: none;
+        box-shadow: none;
+      }
     </style>
   </head>
   <body>
@@ -122,7 +133,7 @@
     </div>
   </body>
   <script>
-    let quotes = [
+    let quotesJSON = `[
       "Don’t see others doing better than you, beat your own records every day because success is a fight between you and yourself.",
       "A rebellion is not a revolution. It may ultimately lead to that end.",
       "Revolution is an inalienable right of mankind. Freedom is an imperishable birthright of all.",
@@ -132,9 +143,9 @@
       "Freedom is not worth having if it does not include the freedom to make mistakes.",
       "First they ignore you, then they laugh at you, then they fight you, then you win.",
       "You must be the change you wish to see in the world.",
-      "Live as if you were to die tomorrow. Learn as if you were to live forever.",
-    ];
-    let quotesAuthor = [
+      "Live as if you were to die tomorrow. Learn as if you were to live forever."
+    ]`;
+    let quotesAuthorJSON = `[
       "Chandrasekhar Azad",
       "Bhagat Singh",
       "Bhagat Singh",
@@ -144,9 +155,9 @@
       "Mahatma Gandhi",
       "Mahatma Gandhi",
       "Mahatma Gandhi",
-      "Mahatma Gandhi",
-    ];
-    let quotesImage = [
+      "Mahatma Gandhi"
+    ]`;
+    let quotesImageJSON = `[
       "pictures/Chandrasekhar Azad.jpeg",
       "pictures/Bhagat Singh.jpeg",
       "pictures/Bhagat Singh.jpeg",
@@ -156,9 +167,9 @@
       "pictures/Mahatma Gandhi.jpeg",
       "pictures/Mahatma Gandhi.jpeg",
       "pictures/Mahatma Gandhi.jpeg",
-      "pictures/Mahatma Gandhi.jpeg",
-    ];
-    let quotesAuthorPosition = [
+      "pictures/Mahatma Gandhi.jpeg"
+    ]`;
+    let quotesAuthorPositionJSON = `[
       "Freedom Fighter",
       "Freedom Fighter",
       "Freedom Fighter",
@@ -168,8 +179,13 @@
       "Father Of the Nation",
       "Father Of the Nation",
       "Father Of the Nation",
-      "Father Of the Nation",
-    ];
+      "Father Of the Nation"
+    ]`;
+    let quotes = JSON.parse(quotesJSON);
+    //console.log(quotes);
+    let quotesAuthor = JSON.parse(quotesAuthorJSON);
+    let quotesImage = JSON.parse(quotesImageJSON);
+    let quotesAuthorPosition = JSON.parse(quotesAuthorPositionJSON);
     //console.log(quotesAuthorPosition);
     function getquote() {
       let num = Math.floor(Math.random() * 10);
