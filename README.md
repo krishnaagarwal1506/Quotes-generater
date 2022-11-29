@@ -9,4 +9,4 @@ This is a simple patriotic quotes generator web page.
 
 ## Deployment
 
-Download all the files and save then in a folder as run index.html
+Download all the files and save then in a folder and run index.html
