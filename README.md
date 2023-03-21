@@ -1,5 +1,7 @@
 # Quotes Generator
 
+### [Webpage LINK](https://krishnaagarwal1506.github.io/Number-Guessing-Game/)
+
 This is a simple patriotic quotes generator web page.
 
 ## project Images
